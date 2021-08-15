@@ -1,0 +1,9 @@
+<!--Template inheritance-->
+{% extends 'base.html' %}
+{% load static %}
+
+<!--Content-->
+{% block content %}
+<h1>Sign in</h1>
+<h3>Already have an account? <a href="{% url 'login' %}">Login now</a></h3>
+{% endblock %}
