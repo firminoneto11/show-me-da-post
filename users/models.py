@@ -1,8 +1,8 @@
-from django.contrib.auth.models import User, UserManager
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db import models
 
 
-class CustomUserManager(UserManager):
+class CustomUserManager(BaseUserManager):
     def _create_user(self, email, password, **extra_fields):
         """
         Create and save a user with the given email and password.
@@ -32,7 +32,9 @@ class CustomUserManager(UserManager):
         return self._create_user(email, password, **extra_fields)
 
 
-class CustomUser(User):
+class CustomUser(AbstractBaseUser):
+    first_name = models.CharField(verbose_name="First name", null=False, blank=False, max_length=50)
+    last_name = models.CharField(verbose_name="Last name", null=False, blank=False, max_length=50)
     email = models.EmailField(verbose_name="E-mail", unique=True, null=False, blank=False)
 
     USERNAME_FIELD = 'email'
@@ -41,3 +43,6 @@ class CustomUser(User):
 
     def __str__(self) -> str:
         return self.get_full_name()
+
+    def get_full_name(self) -> str:
+        return f"{self.first_name} {self.last_name}"

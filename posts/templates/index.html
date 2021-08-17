@@ -1,8 +1,8 @@
 <!--Template inheritance-->
-{% extends 'base.html' %}
+{% extends 'post_base.html' %}
 {% load static %}
 
 <!--Content-->
 {% block content %}
-<h1>Login page for {{ request.user.get_full_name }}</h1>
+<h1>Welcome {{ request.user.get_full_name }}</h1>
 {% endblock %}

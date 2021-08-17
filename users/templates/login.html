@@ -1,9 +1,28 @@
 <!--Template inheritance-->
-{% extends 'base.html' %}
+{% extends 'user_base.html' %}
 {% load static %}
 
 <!--Content-->
 {% block content %}
-<h1>Login</h1>
-<h3>Don't have an account? <a href="{% url 'sign_in' %}">Register now</a></h3>
+<header class="title-container">
+    <h1 class="title">Login</h1>
+</header>
+<main class="container fm">
+    <form id="form" class="form" autocomplete="off">
+        {% csrf_token %}
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+            <label for="email">Email address</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+            <label for="password">Password</label>
+        </div>
+        <div class="button-wrapper">
+            <button class="button" type="submit">Login</button>
+        </div>
+
+        <p class="register">Don't have an account? <a href="{% url 'sign_in' %}">Sign in</a></p>
+    </form>
+</main>
 {% endblock %}
