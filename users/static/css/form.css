@@ -74,6 +74,11 @@
     color: #000000;
 }
 
+.adjust {
+    margin-bottom: 0.5rem;
+    padding: 5px;
+}
+
 @media screen and (max-width: 992px) {
     .button {
         width: 40%;
