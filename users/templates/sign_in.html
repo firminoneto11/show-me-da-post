@@ -8,41 +8,41 @@
     <h1 class="title">Sign in</h1>
 </header>
 <main class="container fm">
-    <form class="form row g-3">
+    <form class="form row g-3" action="{% url 'sign_in' %}" method="POST">
+        {% csrf_token %}
         <div class="col-md-6 adjust">
             <div class="form-floating">
-                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="_">
+                <input id="first_name" name="first_name" type="text" class="form-control" placeholder="_">
                 <label for="first_name" class="form-label">First Name *</label>
             </div>
         </div>
         <div class="col-md-6 adjust">
             <div class="form-floating">
-                <input type="password" class="form-control" id="last_name" name="last_name" placeholder="_">
+                <input id="last_name" name="last_name" type="text" class="form-control" placeholder="_">
                 <label for="last_name" class="form-label">Last name *</label>
             </div>
         </div>
         <div class="col-12 adjust">
             <div class="form-floating">
-                <input type="email" class="form-control" id="email" name="email" placeholder="_">
+                <input id="email" name="email" type="email" class="form-control" placeholder="_">
                 <label for="email" class="form-label">E-mail *</label>
             </div>
         </div>
         <div class="col-12 adjust">
             <div class="form-floating">
-                <input type="password" class="form-control" id="password1" name="password1" placeholder="_">
+                <input id="password1" name="password1" type="password" class="form-control" placeholder="_">
                 <label for="password1" class="form-label">Password *</label>
             </div>
         </div>
         <div class="col-12 adjust">
             <div class="form-floating">
-                <input type="password" class="form-control" id="password2" name="password2" placeholder="_">
+                <input id="password2" name="password2" type="password" class="form-control" placeholder="_">
                 <label for="password2" class="form-label">Confirm password *</label>
             </div>
         </div>
         <div class="button-wrapper">
             <button class="button" type="submit">Sign in</button>
         </div>
-
         <p class="register">Already have an account? <a href="{% url 'login' %}">Login now</p>
     </form>
 </main>

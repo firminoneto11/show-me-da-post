@@ -1,16 +1,18 @@
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
 
 
 class CustomUserManager(BaseUserManager):
-    def _create_user(self, email, password, **extra_fields):
+    use_in_migrations = True
+
+    def _create_user(self, email=None, password=None, **extra_fields):
         """
         Create and save a user with the given email and password.
         """
         if not email:
             raise ValueError('The given email must be set')
         email = self.normalize_email(email)
-        user = self.model(username=email, email=email, **extra_fields)
+        user = self.model(email=email, username=email, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
         return user
@@ -32,17 +34,18 @@ class CustomUserManager(BaseUserManager):
         return self._create_user(email, password, **extra_fields)
 
 
-class CustomUser(AbstractBaseUser):
+class CustomUser(AbstractUser):
+    email = models.EmailField(verbose_name="E-mail", unique=True, null=False, blank=False)
     first_name = models.CharField(verbose_name="First name", null=False, blank=False, max_length=50)
     last_name = models.CharField(verbose_name="Last name", null=False, blank=False, max_length=50)
-    email = models.EmailField(verbose_name="E-mail", unique=True, null=False, blank=False)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name', 'last_name']
+
     objects = CustomUserManager()
 
     def __str__(self) -> str:
         return self.get_full_name()
 
-    def get_full_name(self) -> str:
-        return f"{self.first_name} {self.last_name}"
+
+# We must inherit from 'AbstractUser' class in order to create our custom user model.
