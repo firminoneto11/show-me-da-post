@@ -79,6 +79,16 @@
     padding: 5px;
 }
 
+.not-valid {
+    background-image: linear-gradient(to left, #597081, #A9CEF4);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.not-valid p {
+    color: red;
+}
+
 @media screen and (max-width: 992px) {
     .button {
         width: 40%;

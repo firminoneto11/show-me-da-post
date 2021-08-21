@@ -1,6 +1,7 @@
 <!--Template inheritance-->
 {% extends 'user_base.html' %}
 {% load static %}
+{% load widget_tweaks %}
 
 <!--Content-->
 {% block content %}
@@ -28,5 +29,10 @@
 
         <p class="register">Don't have an account? <a href="{% url 'sign_in' %}">Sign in</a></p>
     </form>
+    {% if success %}
+    <div class="alert alert-success" role="alert">
+        {{ success }}
+    </div>
+    {% endif %}
 </main>
 {% endblock %}

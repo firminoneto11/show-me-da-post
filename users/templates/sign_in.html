@@ -1,6 +1,7 @@
 <!--Template inheritance-->
 {% extends 'user_base.html' %}
 {% load static %}
+{% load widget_tweaks %}
 
 <!--Content-->
 {% block content %}
@@ -12,32 +13,77 @@
         {% csrf_token %}
         <div class="col-md-6 adjust">
             <div class="form-floating">
-                <input id="first_name" name="first_name" type="text" class="form-control" placeholder="_">
+                {% render_field form.first_name class="form-control" placeholder="_" %}
+                {% if errors.first_name %}
                 <label for="first_name" class="form-label">First Name *</label>
+                <div class="not-valid">
+                    {% for error in errors.first_name %}
+                    <p>&nbsp;{{ error }}</p>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <label for="first_name" class="form-label">First Name *</label>
+                {% endif %}
             </div>
         </div>
         <div class="col-md-6 adjust">
             <div class="form-floating">
-                <input id="last_name" name="last_name" type="text" class="form-control" placeholder="_">
-                <label for="last_name" class="form-label">Last name *</label>
+                {% render_field form.last_name class="form-control" placeholder="_" %}
+                {% if errors.last_name %}
+                <label for="last_name" class="form-label">Last Name *</label>
+                <div class="not-valid">
+                    {% for error in errors.last_name %}
+                    <p>&nbsp;{{ error }}</p>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <label for="last_name" class="form-label">Last Name *</label>
+                {% endif %}
             </div>
         </div>
         <div class="col-12 adjust">
             <div class="form-floating">
-                <input id="email" name="email" type="email" class="form-control" placeholder="_">
+                {% render_field form.email class="form-control" placeholder="_" %}
+                {% if errors.email %}
+                <label for="email" class="form-label is-invalid">E-mail *</label>
+                <div class="not-valid">
+                    {% for error in errors.email %}
+                    <p>&nbsp;{{ error }}</p>
+                    {% endfor %}
+                </div>
+                {% else %}
                 <label for="email" class="form-label">E-mail *</label>
+                {% endif %}
             </div>
         </div>
         <div class="col-12 adjust">
             <div class="form-floating">
-                <input id="password1" name="password1" type="password" class="form-control" placeholder="_">
+                {% render_field form.password1 class="form-control" placeholder="_" %}
+                {% if errors.password1 %}
                 <label for="password1" class="form-label">Password *</label>
+                <div class="not-valid">
+                    {% for error in errors.password1 %}
+                    <p>&nbsp;{{ error }}</p>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <label for="password1" class="form-label">Password *</label>
+                {% endif %}
             </div>
         </div>
         <div class="col-12 adjust">
             <div class="form-floating">
-                <input id="password2" name="password2" type="password" class="form-control" placeholder="_">
+                {% render_field form.password2 class="form-control" placeholder="_" %}
+                {% if errors.password2 %}
                 <label for="password2" class="form-label">Confirm password *</label>
+                <div class="not-valid">
+                    {% for error in errors.password2 %}
+                    <p>&nbsp;{{ error }}</p>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <label for="password2" class="form-label">Confirm password *</label>
+                {% endif %}
             </div>
         </div>
         <div class="button-wrapper">

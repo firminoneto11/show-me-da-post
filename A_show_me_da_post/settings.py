@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     # Posts
     'posts',
     # Users
-    'users'
+    'users',
+    # Django Widget Tweaks
+    'widget_tweaks'
 ]
 
 MIDDLEWARE = [
