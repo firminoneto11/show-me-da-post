@@ -5,34 +5,44 @@
 
 <!--Content-->
 {% block content %}
-<header class="title-container">
-    <h1 class="title">Login</h1>
-</header>
-<main class="container fm">
-    <form id="form" class="form" autocomplete="off">
-        {% csrf_token %}
-        <div class="adjust">
-            <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
-                <label for="email">Email address</label>
-            </div>
-        </div>
-        <div class="adjust">
-            <div class="form-floating">
-                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-                <label for="password">Password</label>
-            </div>
-        </div>
-        <div class="button-wrapper">
-            <button class="button" type="submit">Login</button>
-        </div>
 
-        <p class="register">Don't have an account? <a href="{% url 'sign_in' %}">Sign in</a></p>
-    </form>
+<body class="body overflowed">
     {% if success %}
-    <div class="alert alert-success" role="alert">
-        {{ success }}
+    <div id="popup" class="alert show">
+        <i class="fa fa-check-square"></i>
+        <span class="msg">{{ success }}</span>
+        <div id="close_button" class="close-btn">
+            <i class="fa fa-times"></i>
+        </div>
     </div>
     {% endif %}
-</main>
+    <header class="title-container">
+        <h1 class="title">Login</h1>
+    </header>
+    <main class="container fm">
+        <form id="form" class="form" autocomplete="off">
+            {% csrf_token %}
+            <div class="adjust">
+                <div class="form-floating mb-3">
+                    {% render_field form.email id="email" class="form-control" placeholder="_" %}
+                    <label for="email">Email address</label>
+                </div>
+            </div>
+            <div class="adjust">
+                <div class="form-floating">
+                    {% render_field form.password type="password" id="password" class="form-control" placeholder="_" %}
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            <div class="button-wrapper">
+                <button class="button" type="submit">Login</button>
+            </div>
+
+            <p class="register">Don't have an account? <a href="{% url 'sign_in' %}">Sign in</a></p>
+        </form>
+    </main>
+    <!--Custom JS-->
+    <script src="{% static 'js/popup.js' %}"></script>
+</body>
+
 {% endblock %}
