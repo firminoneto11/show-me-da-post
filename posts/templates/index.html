@@ -4,5 +4,10 @@
 
 <!--Content-->
 {% block content %}
-<h1>Welcome {{ request.user.get_full_name }}</h1>
+
+<body>
+    <h1>Welcome {{ request.user.get_full_name }}</h1>
+    <a href="{% url 'logout' %}">Logout</a>
+</body>
+
 {% endblock %}

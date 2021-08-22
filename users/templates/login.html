@@ -20,17 +20,17 @@
         <h1 class="title">Login</h1>
     </header>
     <main class="container fm">
-        <form id="form" class="form" autocomplete="off">
+        <form id="form" class="form" method="POST" action="{% url 'login' %}" autocomplete="off">
             {% csrf_token %}
             <div class="adjust">
                 <div class="form-floating mb-3">
-                    {% render_field form.email id="email" class="form-control" placeholder="_" %}
+                    {% render_field form.email id="email" name="email" class="form-control" placeholder="_" %}
                     <label for="email">Email address</label>
                 </div>
             </div>
             <div class="adjust">
                 <div class="form-floating">
-                    {% render_field form.password type="password" id="password" class="form-control" placeholder="_" %}
+                    {% render_field form.password id="password" class="form-control" type="password" placeholder="_" %}
                     <label for="password">Password</label>
                 </div>
             </div>

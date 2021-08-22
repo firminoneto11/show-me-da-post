@@ -3,11 +3,9 @@ from django.contrib.auth.forms import UserCreationForm
 from users.models import CustomUser
 
 
-class LoginForm(forms.ModelForm):
-    class Meta:
-        model = CustomUser
-        fields = 'email', 'password'
-
+class LoginForm(forms.Form):
+    email = forms.EmailField(max_length=50)
+    password = forms.CharField(max_length=128)
 
 class CustomUserCreationForm(UserCreationForm):
 
