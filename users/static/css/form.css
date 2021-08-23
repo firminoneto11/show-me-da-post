@@ -30,7 +30,7 @@
 }
 
 .form-floating {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.20);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.40);
 }
 
 .button-wrapper {
@@ -80,13 +80,13 @@
 }
 
 .not-valid {
-    background-image: linear-gradient(to left, #597081, #A9CEF4);
+    /* background-image: linear-gradient(to left, #597081, #A9CEF4); */
     font-size: 0.9rem;
-    margin-top: 0.5rem;
+    margin-top: 0.3rem;
 }
 
 .not-valid p {
-    color: red;
+    color: rgb(255, 180, 180);
 }
 
 @media screen and (max-width: 992px) {
@@ -99,4 +99,14 @@
     .button {
         width: 50%;
     }
+}
+
+.error {
+    outline: none !important;
+    border: rgb(255, 125, 125) solid 2px !important;
+    transition: 0.3s;
+}
+
+.error:focus {
+    border: red solid 2px !important;
 }

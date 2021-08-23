@@ -11,5 +11,6 @@
 }
 
 .body {
-    background-image: linear-gradient(to left, #36494E, #597081);
+    /* background: linear-gradient(to left, #36494E, #597081) !important; */
+    background-color: #546A7B;
 }

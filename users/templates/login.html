@@ -35,6 +35,10 @@
                 </div>
             </div>
             {% if error %}
+            <script>
+                document.getElementById('password').classList.add('error')
+                document.getElementById('email').classList.add('error')
+            </script>
             <div class="not-valid">
                 <p>&nbsp;&nbsp;&nbsp;{{ error }}</p>
             </div>

@@ -7,6 +7,7 @@
     background-color: #7EA0B7;
     opacity: 0.9;
     transition: all .5s ease;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.50);
 }
 
 .sidebar header {
@@ -47,6 +48,7 @@ ul li:hover a {
     background-color: #A9CEF4;
     border-radius: 3px;
     transition: 0.1s;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.50);
 }
 
 #show:hover, #hide:hover {
@@ -87,11 +89,3 @@ ul li:hover a {
 #check:checked ~ #hide {
     left: 270px;
 }
-
-/* #check:checked ~ main {
-    margin-left: 250px;
-}
-
-main {
-    transition: all .5s ease;
-} */
