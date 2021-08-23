@@ -5,9 +5,108 @@
 <!--Content-->
 {% block content %}
 
-<body>
-    <h1>Welcome {{ request.user.get_full_name }}</h1>
-    <a href="{% url 'logout' %}">Logout</a>
+<body class="body">
+    <nav class="nav">
+        <input id="check" name="check" type="checkbox">
+        <label id="show" for="check" class="fas fa-bars"></label>
+        <label id="hide" for="check" class="fas fa-times"></label>
+        <div class="sidebar">
+            <header>Welcome {{ request.user.get_full_name }}</header>
+            <ul>
+                <li><a href="#"><i class="fas fa-home">&nbsp;&nbsp;Home</i></a></li>
+                <li><a href="#"><i class="fas fa-pen">&nbsp;&nbsp;New Post</i></a></li>
+                <li><a href="#"><i class="fas fa-copy">&nbsp;&nbsp;Update Post</i></a></li>
+                <li><a href="#"><i class="fas fa-trash-alt">&nbsp;&nbsp;Remove Post</i></a></li>
+                <li><a href="{% url 'logout' %}"><i class="fas fa-door-open">&nbsp;&nbsp;Logout</i></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="post">
+            <h1 style="color: #eeeeee;">OMEGA TITLE FOR TEST PURPOSES</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit perspiciatis molestiae a dolores,
+                repudiandae delectus, iure dolorem pariatur sed est voluptates ex cupiditate amet nisi aliquam nostrum
+                sint excepturi accusamus?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit perspiciatis
+                molestiae a dolores, repudiandae delectus, iure dolorem pariatur sed est voluptates ex cupiditate amet
+                nisi aliquam nostrum sint excepturi accusamus?Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Sit perspiciatis molestiae a dolores, repudiandae delectus, iure dolorem pariatur sed est voluptates ex
+                cupiditate amet nisi aliquam nostrum sint excepturi accusamus?</p>
+        </section>
+        <section class="post">
+            <h1 style="color: #eeeeee;">OMEGA TITLE FOR TEST PURPOSES</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit perspiciatis molestiae a dolores,
+                repudiandae delectus, iure dolorem pariatur sed est voluptates ex cupiditate amet nisi aliquam nostrum
+                sint excepturi accusamus?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit perspiciatis
+                molestiae a dolores, repudiandae delectus, iure dolorem pariatur sed est voluptates ex cupiditate amet
+                nisi aliquam nostrum sint excepturi accusamus?Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Sit perspiciatis molestiae a dolores, repudiandae delectus, iure dolorem pariatur sed est voluptates ex
+                cupiditate amet nisi aliquam nostrum sint excepturi accusamus?</p>
+        </section>
+        <section class="post">
+            <h1 style="color: #eeeeee;">OMEGA TITLE FOR TEST PURPOSES</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit perspiciatis molestiae a dolores,
+                repudiandae delectus, iure dolorem pariatur sed est voluptates ex cupiditate amet nisi aliquam nostrum
+                sint excepturi accusamus?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit perspiciatis
+                molestiae a dolores, repudiandae delectus, iure dolorem pariatur sed est voluptates ex cupiditate amet
+                nisi aliquam nostrum sint excepturi accusamus?Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Sit perspiciatis molestiae a dolores, repudiandae delectus, iure dolorem pariatur sed est voluptates ex
+                cupiditate amet nisi aliquam nostrum sint excepturi accusamus?</p>
+        </section>
+        <section class="post">
+            <h1 style="color: #eeeeee;">OMEGA TITLE FOR TEST PURPOSES</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit perspiciatis molestiae a dolores,
+                repudiandae delectus, iure dolorem pariatur sed est voluptates ex cupiditate amet nisi aliquam nostrum
+                sint excepturi accusamus?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit perspiciatis
+                molestiae a dolores, repudiandae delectus, iure dolorem pariatur sed est voluptates ex cupiditate amet
+                nisi aliquam nostrum sint excepturi accusamus?Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Sit perspiciatis molestiae a dolores, repudiandae delectus, iure dolorem pariatur sed est voluptates ex
+                cupiditate amet nisi aliquam nostrum sint excepturi accusamus?</p>
+        </section>
+        <section class="post">
+            <h1 style="color: #eeeeee;">OMEGA TITLE FOR TEST PURPOSES</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit perspiciatis molestiae a dolores,
+                repudiandae delectus, iure dolorem pariatur sed est voluptates ex cupiditate amet nisi aliquam nostrum
+                sint excepturi accusamus?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit perspiciatis
+                molestiae a dolores, repudiandae delectus, iure dolorem pariatur sed est voluptates ex cupiditate amet
+                nisi aliquam nostrum sint excepturi accusamus?Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Sit perspiciatis molestiae a dolores, repudiandae delectus, iure dolorem pariatur sed est voluptates ex
+                cupiditate amet nisi aliquam nostrum sint excepturi accusamus?</p>
+        </section>
+        <section class="post">
+            <h1 style="color: #eeeeee;">OMEGA TITLE FOR TEST PURPOSES</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit perspiciatis molestiae a dolores,
+                repudiandae delectus, iure dolorem pariatur sed est voluptates ex cupiditate amet nisi aliquam nostrum
+                sint excepturi accusamus?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit perspiciatis
+                molestiae a dolores, repudiandae delectus, iure dolorem pariatur sed est voluptates ex cupiditate amet
+                nisi aliquam nostrum sint excepturi accusamus?Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Sit perspiciatis molestiae a dolores, repudiandae delectus, iure dolorem pariatur sed est voluptates ex
+                cupiditate amet nisi aliquam nostrum sint excepturi accusamus?</p>
+        </section>
+        <section class="post">
+            <h1 style="color: #eeeeee;">OMEGA TITLE FOR TEST PURPOSES</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit perspiciatis molestiae a dolores,
+                repudiandae delectus, iure dolorem pariatur sed est voluptates ex cupiditate amet nisi aliquam nostrum
+                sint excepturi accusamus?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit perspiciatis
+                molestiae a dolores, repudiandae delectus, iure dolorem pariatur sed est voluptates ex cupiditate amet
+                nisi aliquam nostrum sint excepturi accusamus?Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Sit perspiciatis molestiae a dolores, repudiandae delectus, iure dolorem pariatur sed est voluptates ex
+                cupiditate amet nisi aliquam nostrum sint excepturi accusamus?</p>
+        </section>
+        <section class="post">
+            <h1 style="color: #eeeeee;">OMEGA TITLE FOR TEST PURPOSES</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit perspiciatis molestiae a dolores,
+                repudiandae delectus, iure dolorem pariatur sed est voluptates ex cupiditate amet nisi aliquam nostrum
+                sint excepturi accusamus?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit perspiciatis
+                molestiae a dolores, repudiandae delectus, iure dolorem pariatur sed est voluptates ex cupiditate amet
+                nisi aliquam nostrum sint excepturi accusamus?Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Sit perspiciatis molestiae a dolores, repudiandae delectus, iure dolorem pariatur sed est voluptates ex
+                cupiditate amet nisi aliquam nostrum sint excepturi accusamus?</p>
+        </section>
+    </main>
+    <a id="btp" class="back-to-top" href="#"><i class="far fa-arrow-alt-circle-up"></i></a>
+    <!--Custom JS-->
+    <script src="{% static 'js/scroll.js' %}"></script>
 </body>
 
 {% endblock %}

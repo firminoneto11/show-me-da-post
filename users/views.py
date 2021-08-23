@@ -17,8 +17,11 @@ def log_in(request):
                 login(request, user)
                 return redirect(to='home')
             else:
-                # Gotta show some error messages
-                pass
+                # Email or password incorrect
+                context.update({'error': 'Email or password incorrect'})
+        else:
+            # Invalid information
+            context.update({'error': 'Invalid information'})
     return render(request, 'login.html', context)
 
 

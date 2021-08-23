@@ -1,0 +1,97 @@
+
+.sidebar {
+    position: fixed;
+    left: -250px;
+    width: 250px;
+    height: 100vh;
+    background-color: #7EA0B7;
+    opacity: 0.9;
+    transition: all .5s ease;
+}
+
+.sidebar header {
+    font-size: 22px;
+    color: #EEEEEE;
+    text-align: center;
+    line-height: 50px;
+    background-color: #36494E;
+    user-select: none;
+}
+
+.sidebar ul a{
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    color: #36494E;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    border-bottom: 1px solid black;
+    transition: 0.3s;
+}
+
+ul li:hover a {
+    padding-left: 50px;
+    background-color: #000000;
+    color: #EEEEEE;
+}
+
+#check {
+    display: none;
+}
+
+#show, #hide {
+    position: fixed;
+    cursor: pointer;
+    background-color: #A9CEF4;
+    border-radius: 3px;
+    transition: 0.1s;
+}
+
+#show:hover, #hide:hover {
+    background-color: #000000;
+    color: #EEEEEE;
+    padding-left: 20px;
+}
+
+#show {
+    left: 40px;
+    top: 25px;
+    font-size: 35px;
+    color: darkblue;
+    padding: 6px 12px;
+    transition: all .5s;
+}
+
+#hide {
+    z-index: 1;
+    left: -195px;
+    top: 17px;
+    font-size: 30px;
+    color: darkblue;
+    padding: 6px 12px;
+    transition: all .5s ease;
+}
+
+#check:checked ~ .sidebar {
+    left: 0;
+}
+
+#check:checked ~ #show {
+    left: 250px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#check:checked ~ #hide {
+    left: 270px;
+}
+
+/* #check:checked ~ main {
+    margin-left: 250px;
+}
+
+main {
+    transition: all .5s ease;
+} */

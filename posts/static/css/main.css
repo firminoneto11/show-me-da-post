@@ -1,0 +1,40 @@
+
+.container {
+    z-index: -1;
+    position: absolute;
+    left: 50%;
+    top: 2%;
+    transform: translate(-50%, 2%);
+    width: 80%;
+}
+
+.post {
+    margin-bottom: 1rem;
+    border: 1px #EEEEEE solid;
+    border-radius: 2px;
+    width: 100%;
+    padding: 15px;
+}
+
+.post h1 {
+    text-align: center;
+}
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 10px;
+    bottom: 10px;
+    cursor: pointer;
+    font-size: 30px;
+    color: darkblue;
+    padding: 5px;
+    background-color: #A9CEF4;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+.back-to-top:hover {
+    background-color: #000000;
+    color: #EEEEEE;
+}

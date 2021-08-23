@@ -6,7 +6,7 @@
 <!--Content-->
 {% block content %}
 
-<body class="body overflowed">
+<body class="body hidden-overflow">
     {% if success %}
     <div id="popup" class="alert show">
         <i class="fa fa-check-square"></i>
@@ -34,8 +34,13 @@
                     <label for="password">Password</label>
                 </div>
             </div>
+            {% if error %}
+            <div class="not-valid">
+                <p>&nbsp;&nbsp;&nbsp;{{ error }}</p>
+            </div>
+            {% endif %}
             <div class="button-wrapper">
-                <button class="button" type="submit">Login</button>
+                <button class="button" type="submit"><i class="fas fa-home">&nbsp;&nbsp;Login</i></button>
             </div>
 
             <p class="register">Don't have an account? <a href="{% url 'sign_in' %}">Sign in</a></p>

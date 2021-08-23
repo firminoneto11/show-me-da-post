@@ -1,0 +1,15 @@
+
+* {
+   text-rendering: optimizeLegibility;
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   scroll-behavior: smooth;
+   list-style: none;
+   text-decoration: none;
+   font-family: helvetica, sans-serif;
+}
+
+.body {
+    background-image: linear-gradient(to left, #36494E, #597081);
+}

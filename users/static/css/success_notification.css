@@ -32,10 +32,11 @@
 .alert {
     background-color: #d1e7dd !important;
     padding: 20px 40px !important;
-    min-width: 420px !important;
+    min-width: 350px !important;
+    opacity: 0.9;
     position: absolute !important;
     right: 0px !important;
-    top: 10px !important;
+    top: 30px !important;
     border-radius: 4px !important;
     border-left: 7px solid #0f5132 !important;
     overflow: hidden !important;
