@@ -44,7 +44,7 @@ class CustomUser(AbstractUser):
 
     objects = CustomUserManager()
 
-    def __str__(self) -> str:
+    def __str__(self):
         return self.get_full_name()
 
 

@@ -8,18 +8,6 @@
     width: 80%;
 }
 
-.post {
-    margin-bottom: 1rem;
-    border: 1px #EEEEEE solid;
-    border-radius: 2px;
-    width: 100%;
-    padding: 15px;
-}
-
-.post h1 {
-    text-align: center;
-}
-
 .back-to-top {
     position: fixed;
     display: none;

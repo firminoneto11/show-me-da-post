@@ -1,0 +1,37 @@
+
+.post {
+    margin-bottom: 1rem;
+    font-family: helvetica;
+    border: 1px black solid;
+    border-radius: 25px;
+    width: 100%;
+    padding: 15px;
+    background-color: #eeeeeeef;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.45);
+    transition: 0.5s;
+}
+
+.post:hover {
+    margin-left: -30px;
+    background-color: #36494E;
+    color: #EEEEEE;
+    border: 1px #EEEEEE solid;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.90);
+}
+
+.post h1 {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 0.9rem;
+    font-weight: lighter;
+}
+
+.post p {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.post-info {
+    margin-top: 1rem !important;
+    margin-left: 0.5rem;
+}

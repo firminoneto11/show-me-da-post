@@ -7,6 +7,7 @@ class LoginForm(forms.Form):
     email = forms.EmailField(max_length=50, widget=forms.EmailInput(attrs={'autofocus': True}))
     password = forms.CharField(max_length=128)
 
+
 class CustomUserCreationForm(UserCreationForm):
 
     class Meta:

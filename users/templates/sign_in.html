@@ -61,7 +61,6 @@
                     <label for="password1" class="form-label">Password *</label>
                 </div>
                 {% if errors.password1 %}
-                <script>document.getElementById('id_password1').classList.add('error')</script>
                 <div class="not-valid">
                     {% for error in errors.password1 %}
                     <p>&nbsp;&nbsp;&nbsp;{{ error }}</p>
@@ -75,6 +74,7 @@
                     <label for="password2" class="form-label">Confirm password *</label>
                 </div>
                 {% if errors.password2 %}
+                <script>document.getElementById('id_password1').classList.add('error')</script>
                 <script>document.getElementById('id_password2').classList.add('error')</script>
                 <div class="not-valid">
                     {% for error in errors.password2 %}

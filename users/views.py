@@ -6,7 +6,8 @@ from django.contrib.auth import authenticate, login
 def log_in(request):
     context = {'form': LoginForm()}
     if 'success' in request.session.keys():
-        context.update({'success': request.session.get('success')})  # Saving the data that came from the session storage
+        context.update({'success': request.session.get('success')})  # Saving the data that came from the session
+        # storage
         del request.session['success']  # Deleting the data from the session storage
     if request.method == 'POST':
         user_data = LoginForm(request.POST)
