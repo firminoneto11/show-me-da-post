@@ -11,6 +11,23 @@
     transition: 0.5s;
 }
 
+.no-posts {
+    margin-bottom: 1rem;
+    font-family: helvetica;
+    border: 1px black solid;
+    border-radius: 25px;
+    width: 100%;
+    padding: 15px;
+    background-color: #eeeeeeef;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.45);
+}
+
+.no-posts p {
+    font-size: 1.4rem;
+    margin: 0.5rem 0 0.5rem 0;
+    text-align: center;
+}
+
 .post:hover {
     margin-left: -30px;
     background-color: #36494E;

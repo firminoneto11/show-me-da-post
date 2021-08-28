@@ -1,0 +1,137 @@
+
+.panel {
+    text-align: right;
+    margin: 0.5rem 0 0.5rem 0;
+}
+
+.error {
+    border: rgba(128, 0, 0, 0.50) 2px solid !important;
+}
+
+.error:hover {
+    border: red 2px solid !important;
+}
+
+.error:focus {
+    border: red 2px solid !important;
+}
+
+.modal-bg {
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.5s, opacity 0.5s;
+}
+
+.modal-active {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.modal {
+    position: relative;
+    border-radius: 10px;
+    width: 80%;
+}
+
+.inside-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    min-width: fit-content;
+    min-height: fit-content;
+    border: #000000 1px solid;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.45);
+    padding: 50px;
+    background-color: #EEEEEE;
+}
+
+.label, .input, .textarea, .post-button, .close-modal {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+}
+
+.label {
+    text-align: left;
+    font-size: 1.4rem;
+}
+
+.input {
+    outline: none;
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px;
+    border: #000000 2px solid;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    transition: 0.3s;
+}
+
+.textarea {
+    outline: none;
+    width: 100%;
+    height: 5%;
+    resize: none;
+    font-size: 1rem;
+    border: #000000 2px solid;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    transition: 0.3s;
+}
+
+.input:hover, .textarea:hover {
+    border: rgba(0, 0, 255, 0.5) 2px solid;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.50);
+}
+
+.input:focus, .textarea:focus {
+    border: rgba(0, 0, 255, 1) 2px solid;
+}
+
+.post-button {
+    background-color: #7EA0B7;
+    color: #000000;
+    border: #000000 1px solid;
+}
+
+.post-button:hover {
+    background-color: #EEEEEE;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.90);
+}
+
+.close-modal {
+    background-color: rgba(255, 0, 0, 0.5);
+    color: #EEEEEE;
+    border: #000000 1px solid;
+}
+
+.close-modal:hover {
+    background-color: #EEEEEE;
+    color: #000000;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.90);
+}
+
+.post-button, .close-modal {
+    width: 45%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+    user-select: none;
+}

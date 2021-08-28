@@ -5,12 +5,11 @@
     width: 250px;
     height: 100vh;
     background-color: #7EA0B7;
-    opacity: 0.9;
     transition: all .5s ease;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.50);
 }
 
-.sidebar header {
+.sidebar div {
     font-size: 22px;
     color: #EEEEEE;
     text-align: center;
@@ -30,6 +29,8 @@
     border-top: 1px solid rgba(255, 255, 255, .1);
     border-bottom: 1px solid black;
     transition: 0.3s;
+    cursor: pointer;
+    user-select: none;
 }
 
 ul li:hover a {
@@ -49,6 +50,7 @@ ul li:hover a {
     border-radius: 3px;
     transition: 0.1s;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.50);
+    height: 3rem;
 }
 
 #show:hover, #hide:hover {
