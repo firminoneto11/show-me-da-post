@@ -1,4 +1,14 @@
 
+@font-face {
+    font-family: "KonstanzRegular";
+    src: url("assets/fonts/Konstanz-Regular.ttf");
+}
+
+@font-face {
+    font-family: "KonstanzBold";
+    src: url("assets/fonts/Konstanz-Bold.ttf");
+}
+
 * {
    text-rendering: optimizeLegibility;
    box-sizing: border-box;
@@ -7,10 +17,14 @@
    scroll-behavior: smooth;
    list-style: none;
    text-decoration: none;
-   font-family: helvetica, sans-serif;
 }
 
 .body {
     /* background: linear-gradient(to left, #36494E, #597081) !important; */
     background-color: #546A7B;
+    overflow-x: hidden;
+}
+
+p, span, h1, h2, h3, input, textarea {
+    font-family: "KonstanzRegular" !important;
 }

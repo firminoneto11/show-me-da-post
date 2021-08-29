@@ -7,12 +7,21 @@
 {% block content %}
 
 <body class="body">
+    {% if success %}
+    <div id="popup" class="alert show">
+        <i class="fa fa-check-square"></i>
+        <span class="msg">{{ success }}</span>
+        <div id="close_notification" class="close-btn">
+            <i class="fa fa-times"></i>
+        </div>
+    </div>
+    {% endif %}
     <nav class="nav">
         <input id="check" name="check" type="checkbox">
         <label id="show" for="check" class="fas fa-bars"></label>
         <label id="hide" for="check" class="fas fa-times"></label>
         <header class="sidebar">
-            <div><i class="fas fa-user-alt">&nbsp;&nbsp;</i>Welcome {{ request.user.get_full_name }}</div>
+            <div><i class="fas fa-user-alt">&nbsp;&nbsp;</i>Welcome {{ request.user }}</div>
             <ul>
                 <li><a href="#"><i class="fas fa-home">&nbsp;&nbsp;Home</i></a></li>
                 <li><a id="new_post"><i class="fas fa-pen">&nbsp;&nbsp;New Post</i></a></li>
@@ -34,7 +43,7 @@
             <h1>{{ post.title }}</h1>
             <p>{{ post.post_content }}</p>
             <p class="post-info"><i class="far fa-comment-alt"></i>&nbsp;&nbsp;Posted on {{ post.posted_on }} by
-                <b>{{ post.first_name }} {{ post.last_name }}</b>&nbsp;&nbsp;
+                <b>{{ post.author }}</b>&nbsp;&nbsp;
                 <i class="far fa-comment-alt"></i>
             </p>
         </section>
@@ -47,7 +56,7 @@
             <div class="inside-container">
                 <form id="form" class="form" action="{% url 'home' %}" method="POST">
                     {% csrf_token %}
-                    <input type="hidden" id="author_id" name="author_id" value="{{ request.user.pk }}">
+                    <input type="hidden" id="author" name="author" value="{{ request.user.pk }}">
                     <label class="label" for="title">New post's title</label>
                     {% render_field form.title id="title" name="title" class="input" %}
                     <p id="title_panel" class="panel">0/30</p>
@@ -68,6 +77,7 @@
     <script src="{% static 'js/modal.js' %}"></script>
     <script src="{% static 'js/prevent_resend.js' %}"></script>
     <script src="{% static 'js/char_counter.js' %}"></script>
+    <script src="{% static 'js/popup.js' %}"></script>
 </body>
 
 {% endblock %}

@@ -32,8 +32,7 @@
 .alert {
     background-color: #d1e7dd !important;
     padding: 20px 40px !important;
-    min-width: 330px !important;
-    opacity: 0.9;
+    min-width: 300px !important;
     position: absolute !important;
     right: 0px !important;
     top: 30px !important;

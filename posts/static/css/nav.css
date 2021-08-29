@@ -61,8 +61,8 @@ ul li:hover a {
 }
 
 #show {
-    left: 40px;
-    top: 25px;
+    top: 10px;
+    left: 10px;
     font-size: 35px;
     color: darkblue;
     padding: 6px 12px;
@@ -71,8 +71,8 @@ ul li:hover a {
 
 #hide {
     z-index: 1;
-    left: -195px;
-    top: 17px;
+    left: -200px;
+    top: 10px;
     font-size: 30px;
     color: darkblue;
     padding: 6px 12px;
@@ -90,5 +90,5 @@ ul li:hover a {
 }
 
 #check:checked ~ #hide {
-    left: 270px;
+    left: 255px;
 }

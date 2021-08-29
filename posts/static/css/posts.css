@@ -1,7 +1,6 @@
 
 .post {
     margin-bottom: 1rem;
-    font-family: helvetica;
     border: 1px black solid;
     border-radius: 25px;
     width: 100%;
@@ -9,11 +8,11 @@
     background-color: #eeeeeeef;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.45);
     transition: 0.5s;
+    word-break: break-all;
 }
 
 .no-posts {
     margin-bottom: 1rem;
-    font-family: helvetica;
     border: 1px black solid;
     border-radius: 25px;
     width: 100%;
@@ -50,6 +49,6 @@
 
 .post-info {
     margin-top: 1rem !important;
-    margin-right: 0.5rem;
+    margin-right: 0.5rem !important;
     text-align: right;
 }

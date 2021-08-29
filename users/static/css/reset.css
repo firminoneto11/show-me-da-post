@@ -1,3 +1,9 @@
+
+@font-face {
+    font-family: "KonstanzBold";
+    src: url("assets/fonts/Konstanz-Bold.ttf");
+}
+
 * {
     text-rendering: optimizeLegibility;
     margin: 0;
@@ -9,8 +15,9 @@
 .body {
     /* background-image: linear-gradient(to left, #36494E, #597081); */
     background-color: #546A7B;
+    overflow-x: hidden;
 }
 
-.hidden-overflow {
-    overflow: hidden;
+p, span, h1, h2, h3, input, textarea {
+    font-family: "KonstanzRegular" !important;
 }

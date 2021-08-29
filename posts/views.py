@@ -15,16 +15,11 @@ def home(request):
         """
     )}
     if request.method == "POST":
-        post_data = {key: request.POST.get(key) for key in request.POST.keys()}
-        post_form = PostCreationForm(post_data)
+        post_form = PostCreationForm(request.POST)
         if post_form.is_valid():
-            # TODO: Save in the database and inform the user through some notification that it's post was a success
-            if int(post_data.get("author_id")) == request.user.pk:
-                del post_data["csrfmiddlewaretoken"]
-                post_data = {key: post_form.cleaned_data.get(key) for key in post_data.keys()}
-                Post(**post_data).save()
-                request.method = "GET"
-                context.update({"success": True})
+            if post_form.cleaned_data.get("author") == request.user:
+                post_form.save(commit=True)
+                context.update({"success": "Posted successfully!"})
                 return render(request, 'index.html', context)
             else:
                 # TODO: Do something if the user changed the user's ID
