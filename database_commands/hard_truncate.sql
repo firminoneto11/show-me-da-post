@@ -14,6 +14,8 @@ alter sequence auth_user_groups_id_seq restart with 1;
 alter sequence auth_user_user_permissions_id_seq restart with 1;
 alter sequence django_admin_log_id_seq restart with 1;
 
+ALTER SEQUENCE posts_post_id_seq RESTART WITH 1;
+
 -- Commiting
 commit;
 

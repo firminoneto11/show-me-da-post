@@ -11,3 +11,10 @@ UPDATE USERS_CUSTOMUSER SET ID = 9 WHERE ID = 13
 SELECT * FROM USERS_CUSTOMUSER ORDER BY ID ASC
 
 SELECT CURRVAL('USERS_CUSTOMUSER_ID_SEQ')
+
+SELECT * FROM POSTS_POST
+
+-- Select view for getting the first and last names of each post author
+SELECT p.id, u.first_name, u.last_name, p.title, p.post_content, p.posted_on
+FROM USERS_CUSTOMUSER AS "u" INNER JOIN POSTS_POST AS "p"
+ON p.author_id = u.id

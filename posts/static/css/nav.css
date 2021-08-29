@@ -13,9 +13,10 @@
     font-size: 22px;
     color: #EEEEEE;
     text-align: center;
-    line-height: 50px;
+    line-height: 40px;
     background-color: #36494E;
     user-select: none;
+    padding: 20px;
 }
 
 .sidebar ul a{

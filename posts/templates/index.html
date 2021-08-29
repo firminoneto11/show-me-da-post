@@ -31,7 +31,10 @@
         {% else %}
         {% for post in posts %}
         <section class="post">
-            <p class="post-info"><i class="far fa-comment-alt"></i> Posted on {{ post.posted_on }} by {{ post.author }}
+            <h1>{{ post.title }}</h1>
+            <p>{{ post.post_content }}</p>
+            <p class="post-info"><i class="far fa-comment-alt"></i>&nbsp;&nbsp;Posted on {{ post.posted_on }} by
+                <b>{{ post.first_name }} {{ post.last_name }}</b>&nbsp;&nbsp;
                 <i class="far fa-comment-alt"></i>
             </p>
         </section>
@@ -44,6 +47,7 @@
             <div class="inside-container">
                 <form id="form" class="form" action="{% url 'home' %}" method="POST">
                     {% csrf_token %}
+                    <input type="hidden" id="author_id" name="author_id" value="{{ request.user.pk }}">
                     <label class="label" for="title">New post's title</label>
                     {% render_field form.title id="title" name="title" class="input" %}
                     <p id="title_panel" class="panel">0/30</p>
@@ -62,6 +66,7 @@
     <!--Custom JS-->
     <script src="{% static 'js/scroll.js' %}"></script>
     <script src="{% static 'js/modal.js' %}"></script>
+    <script src="{% static 'js/prevent_resend.js' %}"></script>
     <script src="{% static 'js/char_counter.js' %}"></script>
 </body>
 

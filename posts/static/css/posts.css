@@ -38,7 +38,7 @@
 
 .post h1 {
     font-size: 1.4rem;
-    text-align: center;
+    text-align: left;
     margin-bottom: 0.9rem;
     font-weight: lighter;
 }
@@ -50,5 +50,6 @@
 
 .post-info {
     margin-top: 1rem !important;
-    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    text-align: right;
 }
