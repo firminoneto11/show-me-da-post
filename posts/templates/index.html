@@ -15,6 +15,14 @@
             <i class="fa fa-times"></i>
         </div>
     </div>
+    {% elif error %}
+    <div id="popup" class="error-alert show">
+        <i class="fas fa-ban"></i>
+        <span class="msg">{{ error }}</span>
+        <div id="close_notification" class="error-close-btn">
+            <i class="fa fa-times"></i>
+        </div>
+    </div>
     {% endif %}
     <nav class="nav">
         <input id="check" name="check" type="checkbox">

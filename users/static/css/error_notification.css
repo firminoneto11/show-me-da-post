@@ -29,8 +29,8 @@
     }
 }
 
-.alert {
-    background-color: #d1e7dd !important;
+.error-alert {
+    background-color: rgba(255, 0, 0, 0.5) !important;
     padding: 20px 40px !important;
     min-width: 350px !important;
     max-width: fit-content !important;
@@ -38,55 +38,56 @@
     right: 0px !important;
     top: 63px !important;
     border-radius: 4px !important;
-    border-left: 7px solid #0f5132 !important;
+    border-left: 7px solid red !important;
     overflow: hidden !important;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.20);
 }
 
-.alert.show {
+.error-alert.show {
     animation: show_slide 1s ease forwards !important;
 }
 
-.alert.hide {
+.error-alert.hide {
     animation: hide_slide 1s ease forwards !important;
 }
 
-.alert .fa-check-square {
+.error-alert .fa-ban {
     position: absolute !important;
     left: 20px !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
-    color: #0f5132 !important;
+    color: #EEEEEE !important;
     font-size: 25px !important;
 }
 
-.alert .msg {
+.error-alert .msg {
     padding: 0 20px !important;
     font-size: 18px !important;
-    color: black !important;
+    color: #EEEEEE !important;
 }
 
-.alert .close-btn {
+.error-alert .error-close-btn {
     position: absolute !important;
     right: 0px !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
-    background-color: #0f513260 !important;
+    background-color: rgba(128, 0, 0, 0.5) !important;
     padding: 20px 18px !important;
     cursor: pointer !important;
     transition: 0.3s !important;
 }
 
-.close-btn:hover {
+.error-close-btn .fa-times {
+    color: #EEEEEE;
+    font-size: 20px;
+    line-height: 40px;
+    transition: 0.3s;
+}
+
+.error-close-btn:hover {
     background-color: #EEEEEE !important;
 }
 
-.close-btn .fa-times {
-    color: #0f5132;
-    font-size: 20px;
-    line-height: 40px;
-}
-
-.close-btn .fa-times:hover {
-    color: #000000;
+.error-close-btn .fa-times:hover {
+    color: black;
 }

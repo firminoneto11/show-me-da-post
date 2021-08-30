@@ -12,10 +12,13 @@ const manage_popup = () => {
 }
 
 // Binding the event listeners
-document.addEventListener('DOMContentLoaded', () => setTimeout(manage_popup, 2000))
+document.addEventListener('DOMContentLoaded', () => setTimeout(manage_popup, 2500))
 try {
     document.getElementById('close_notification').addEventListener('click', manage_popup)
 }
 catch {
     //
 }
+
+// Tests for error stuff
+// document.addEventListener("DOMContentLoaded", () => { document.getElementById("author").setAttribute("value", 20) })

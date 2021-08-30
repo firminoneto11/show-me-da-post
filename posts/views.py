@@ -17,16 +17,14 @@ def home(request):
     if request.method == "POST":
         post_form = PostCreationForm(request.POST)
         if post_form.is_valid():
-            if post_form.cleaned_data.get("author") == request.user:
+            if post_form.cleaned_data.get("author").pk == request.user.pk:
                 post_form.save(commit=True)
                 context.update({"success": "Posted successfully!"})
                 return render(request, 'index.html', context)
             else:
-                # TODO: Do something if the user changed the user's ID
-                pass
+                context.update({"error": "An error occurred. Please, try again..."})
         else:
-            # TODO: Do something to inform the user that he typed something weird
-            return render(request, 'index.html', context)
+            context.update({"error": "An error occurred. Please, try again..."})
     return render(request, 'index.html', context)
 
 
