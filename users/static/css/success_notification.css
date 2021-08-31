@@ -34,7 +34,7 @@
     padding: 20px 40px !important;
     min-width: 350px !important;
     max-width: fit-content !important;
-    position: absolute !important;
+    position: fixed !important;
     right: 0px !important;
     top: 63px !important;
     border-radius: 4px !important;

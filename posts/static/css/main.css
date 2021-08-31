@@ -1,11 +1,7 @@
 
 .container {
-    z-index: -1;
-    position: absolute;
-    left: 50%;
-    top: 2%;
-    transform: translate(-50%, 2%);
     width: 80%;
+    margin: 1.5rem auto 0 auto;
 }
 
 .back-to-top {

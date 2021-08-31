@@ -1,0 +1,14 @@
+
+.header {
+    display: block;
+    width: 90%;
+    margin: 0 auto 0 auto;
+    border-radius: 5px;
+    background-color: #CCD6EB;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.45);
+}
+
+.header h1 {
+    text-align: center;
+}

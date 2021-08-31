@@ -24,11 +24,18 @@
         </div>
     </div>
     {% endif %}
+    <!--Header-->
+    <header class="header">
+        <div>
+            <h1>Show me da post!</h1>
+        </div>
+    </header>
+    <!--Navigation bar-->
     <nav class="nav">
         <input id="check" name="check" type="checkbox">
         <label id="show" for="check" class="fas fa-bars"></label>
         <label id="hide" for="check" class="fas fa-times"></label>
-        <header class="sidebar">
+        <div class="sidebar">
             <div><i class="fas fa-user-alt">&nbsp;&nbsp;</i>Welcome {{ request.user }}</div>
             <ul>
                 <li><a href="#"><i class="fas fa-home">&nbsp;&nbsp;Home</i></a></li>
@@ -37,9 +44,9 @@
                 <li><a href="#"><i class="fas fa-trash-alt">&nbsp;&nbsp;Remove Post</i></a></li>
                 <li><a href="{% url 'logout' %}"><i class="fas fa-door-open">&nbsp;&nbsp;Logout</i></a></li>
             </ul>
-        </header>
+        </div>
     </nav>
-
+    <!--Main content - Posts-->
     <main class="container">
         {% if not posts %}
         <section class="no-posts">

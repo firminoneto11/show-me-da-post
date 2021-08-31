@@ -5,6 +5,7 @@ const manage_popup = () => {
         const popup = document.getElementById('popup')
         popup.classList.remove('show')
         popup.classList.add('hide')
+        setTimeout(() => popup.style.display = "none", 1000)
     }
     catch {
         //
