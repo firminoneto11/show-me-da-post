@@ -28,6 +28,23 @@ def home(request):
     return render(request, 'index.html', context)
 
 
+@login_required(login_url='login')
+def remove(request):
+    context = {'posts': Post.objects.raw(
+        """
+        SELECT p.id, u.first_name, u.last_name, p.title, p.post_content, p.posted_on
+        FROM USERS_CUSTOMUSER AS "u" INNER JOIN POSTS_POST AS "p" ON p.author_id = u.id
+        WHERE p.author_id = %s
+        ORDER BY p.posted_on DESC;
+        """ % request.user.pk
+    )}
+    if request.method == 'POST':
+        post = Post.objects.get(pk=request.POST.get("post_id"))
+        post.delete()
+        context.update({"success": "Post removed successfully!"})
+    return render(request, 'remove.html', context)
+
+
 def log_out(request):
     logout(request)
     return redirect(to='login')
