@@ -5,8 +5,8 @@
 }
 
 @font-face {
-    font-family: "KonstanzBold";
-    src: url("assets/fonts/Konstanz-Bold.ttf");
+    font-family: "Konstanz-Regular";
+    src: url("assets/Konstanz-Regular.ttf");
 }
 
 * {
@@ -26,5 +26,5 @@
 }
 
 p, span, h1, h2, h3, input, textarea {
-    font-family: "KonstanzRegular" !important;
+    font-family: "Konstanz-Regular" !important;
 }

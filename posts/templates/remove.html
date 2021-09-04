@@ -29,6 +29,14 @@
             <h1>Show me da post!</h1>
         </div>
     </header>
+    <!--Current page info-->
+    {% if posts %}
+    <div class="cur-url">
+        <div>
+            <h3>Choose one of your posts to delete</h3>
+        </div>
+    </div>
+    {% endif %}
     <!--Navigation bar-->
     <nav class="nav">
         <input id="check" name="check" type="checkbox">
@@ -44,7 +52,7 @@
         </div>
     </nav>
     <!--Main content - Posts-->
-    <main class="container">
+    <main id="main" class="container">
         {% if not posts %}
         <section class="no-posts">
             <p><i class="far fa-comments">&nbsp;&nbsp;You didn't post anything yet :(</i></p>
@@ -61,7 +69,8 @@
                     <b>{{ post.author }}</b>&nbsp;&nbsp;
                     <i class="far fa-comment-alt"></i>
                 </p>
-                <button class="delete-button" type="submit"><i class="fas fa-trash-alt"></i></button>
+                <button class="delete-button" type="submit"><i class="fas fa-trash-alt">&nbsp;&nbsp;Delete
+                        post</i></button>
             </section>
         </form>
         {% endfor %}
@@ -69,10 +78,13 @@
     </main>
     <!--Back to the top button-->
     <a id="btp" class="back-to-top" href="#"><i class="far fa-arrow-alt-circle-up"></i></a>
+    <!--Sweet Alert JS-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!--Custom JS-->
     <script src="{% static 'js/scroll.js' %}"></script>
     <script src="{% static 'js/prevent_resend.js' %}"></script>
     <script src="{% static 'js/popup.js' %}"></script>
+    <script src="{% static 'js/deletion_confirmation.js' %}"></script>
 </body>
 
 {% endblock %}
