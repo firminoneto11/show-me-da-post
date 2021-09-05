@@ -1,6 +1,7 @@
 <!--Template inheritance-->
 {% extends 'post_base.html' %}
 {% load static %}
+{% load widget_tweaks %}
 
 <!--Content-->
 {% block content %}
@@ -33,7 +34,7 @@
     {% if posts %}
     <div class="cur-url">
         <div>
-            <h3>Choose one of your posts to update</h3>
+            <h3>Click on one of your posts to update</h3>
         </div>
     </div>
     {% endif %}
@@ -66,21 +67,40 @@
                 <b>{{ post.author }}</b>&nbsp;&nbsp;
                 <i class="far fa-comment-alt"></i>
             </p>
+            <input type="hidden" name="post_id" value="{{ post.id }}">
         </section>
         {% endfor %}
         {% endif %}
     </main>
+    <!--Update a Post modal-->
+    <div id="modal" class="modal-bg">
+        <div class="modal">
+            <div class="inside-container">
+                <form id="form" class="form" action="{% url 'update' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" id="author" name="author" value="{{ request.user.pk }}">
+                    <input type="hidden" id="post_id" name="post_id" value="None">
+                    <label class="label" for="title">Post's new title</label>
+                    {% render_field form.title id="title" name="title" class="input" %}
+                    <p id="title_panel" class="panel">0/30</p>
+                    <label class="label" for="content">Post's new content</label>
+                    {% render_field form.post_content id="post_content" name="post_content" class="textarea" %}
+                    <p id="post_panel" class="panel">0/255</p>
+                    <button id="post_button" class="post-button" type="submit"><i class="fas fa-pen">&nbsp;&nbsp;Update
+                            Post</i></button>
+                </form>
+                <button id="close_button" class="close-modal"><i class="fas fa-times">&nbsp;&nbsp;Cancel</i></button>
+            </div>
+        </div>
+    </div>
     <!--Back to the top button-->
     <a id="btp" class="back-to-top" href="#"><i class="far fa-arrow-alt-circle-up"></i></a>
-    <!--Sweet Alert JS-->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!--Custom JS-->
-    <script src="{% static 'js/modal.js' %}"></script>
-    <script src="{% static 'js/char_counter.js' %}"></script>
-    <script src="{% static 'js/scroll.js' %}"></script>
     <script src="{% static 'js/prevent_resend.js' %}"></script>
+    <script src="{% static 'js/char_counter.js' %}"></script>
+    <script src="{% static 'js/form_manager.js' %}"></script>
     <script src="{% static 'js/popup.js' %}"></script>
-    <script src="{% static 'js/update_confirmation.js' %}"></script>
+    <script src="{% static 'js/scroll.js' %}"></script>
 </body>
 
 {% endblock %}

@@ -36,7 +36,7 @@ def home(request):
 
 @login_required(login_url='login')
 def update(request):
-    context = {'posts': Posts.objects.raw(
+    context = {"form": PostCreationForm(), "posts": Posts.objects.raw(
         """
         SELECT p.id, u.first_name, u.last_name, p.title, p.post_content, p.posted_on
         FROM USERS AS "u" INNER JOIN POSTS AS "p" ON p.author_id = u.id
@@ -44,6 +44,30 @@ def update(request):
         ORDER BY p.posted_on DESC;
         """ % request.user.pk
     )}
+    if request.method == "POST":
+        update_post_form = PostCreationForm(request.POST)
+        if update_post_form.is_valid():
+            # Current post ID and posts ID's in order to do a verification if the user didn't change the post_id value
+            try:
+                post_id = int(request.POST.get("post_id"))
+            except Exception:
+                context.update({"error": "Post ID invalid"})
+            else:
+                # Quick tip
+                # Posts.objects.all().filter(author_id=request.user.pk).values("id") -> A approach for getting only the
+                # ID field with a WHERE clause. Equivalent to the following sql query
+                # SELECT ID FROM POSTS WHERE AUTHOR_ID = %s
+
+                # Checking if the post id exists within the posts posted by the current user
+                post_exists = Posts.objects.all().filter(author_id=request.user.pk).filter(id=post_id).exists()
+
+                # Verifying the given data
+                if (update_post_form.cleaned_data.get("author").pk != request.user.pk) or (not post_exists):
+                    context.update({"error": "Something is wrong with the given form"})
+                else:
+                    context.update({"success": "Good to go!"})
+        else:
+            context.update({"error": "The form isn't valid!"})
     return render(request, 'update.html', context)
 
 

@@ -9,5 +9,3 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     close_button.addEventListener("click", () => { modal.classList.remove("modal-active") })
 })
-
-// TODO: Find a way to autofocus the id 'title' element when a user clicks on the "New Post" button
