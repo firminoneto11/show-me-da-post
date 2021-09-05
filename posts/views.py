@@ -27,7 +27,7 @@ def home(request):
                     context.update({"success": "Posted successfully!"})
             else:
                 # If the user changed the "author_id" in the html page
-                context.update({"error": "An error occurred. Please, try again..."})
+                context.update({"error": "Sorry, we couldn't post that..."})
         else:
             # If the form is not valid, containing some sql injection for example
             context.update({"error": "An error occurred. Please, try again..."})
@@ -47,27 +47,32 @@ def update(request):
     if request.method == "POST":
         update_post_form = PostCreationForm(request.POST)
         if update_post_form.is_valid():
-            # Current post ID and posts ID's in order to do a verification if the user didn't change the post_id value
             try:
+                # Getting the current post ID in order to do a verification if the user didn't change the post_id value
                 post_id = int(request.POST.get("post_id"))
             except Exception:
                 context.update({"error": "Post ID invalid"})
             else:
-                # Quick tip
-                # Posts.objects.all().filter(author_id=request.user.pk).values("id") -> A approach for getting only the
-                # ID field with a WHERE clause. Equivalent to the following sql query
-                # SELECT ID FROM POSTS WHERE AUTHOR_ID = %s
-
                 # Checking if the post id exists within the posts posted by the current user
                 post_exists = Posts.objects.all().filter(author_id=request.user.pk).filter(id=post_id).exists()
 
                 # Verifying the given data
                 if (update_post_form.cleaned_data.get("author").pk != request.user.pk) or (not post_exists):
-                    context.update({"error": "Something is wrong with the given form"})
+                    # If the user changed the "author_id" or the "post_id" in the html page
+                    context.update({"error": "Sorry, we couldn't post that..."})
                 else:
-                    context.update({"success": "Good to go!"})
+                    post_instance = Posts.objects.get(pk=post_id)
+                    update_post_form = PostCreationForm(request.POST, instance=post_instance)
+                    try:
+                        update_post_form.save(commit=True)
+                    except Exception:
+                        # If some error occur while trying to UPDATE the data into the database
+                        context.update({"error": "An error occurred. Please, try again..."})
+                    else:
+                        context.update({"success": "Post updated successfully!"})
         else:
-            context.update({"error": "The form isn't valid!"})
+            # If the form is not valid, containing some sql injection for example
+            context.update({"error": "An error occurred. Please, try again..."})
     return render(request, 'update.html', context)
 
 
@@ -96,3 +101,9 @@ def remove(request):
 def log_out(request):
     logout(request)
     return redirect(to='login')
+
+
+# Quick tip
+# Posts.objects.all().filter(author_id=request.user.pk).values("id") -> A approach for getting only the
+# ID fields with a WHERE clause. Equivalent to the following sql query:
+# SELECT ID FROM POSTS WHERE AUTHOR_ID = %s

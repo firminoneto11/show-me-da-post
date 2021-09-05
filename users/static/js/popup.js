@@ -20,6 +20,3 @@ try {
 catch {
     //
 }
-
-// Tests for error stuff
-// document.addEventListener("DOMContentLoaded", () => { document.getElementById("author").setAttribute("value", 20) })
