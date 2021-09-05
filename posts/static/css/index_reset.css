@@ -1,0 +1,25 @@
+
+
+@font-face {
+    font-family: "KonstanzRegular";
+    src: url("../assets/Konstanz-Regular.ttf");
+}
+
+* {
+   text-rendering: optimizeLegibility;
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   scroll-behavior: smooth;
+   list-style: none;
+   text-decoration: none;
+}
+
+.body {
+    background-color: #546A7B;
+    overflow-x: hidden;
+}
+
+p, span, h1, h2, h3, input, textarea, li, a {
+    font-family: "KonstanzRegular" !important;
+}

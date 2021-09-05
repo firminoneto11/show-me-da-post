@@ -1,0 +1,58 @@
+<!--Template inheritance-->
+{% extends 'user_base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+<!--Content-->
+{% block content %}
+
+<body class="body">
+    {% if success %}
+    <div id="popup" class="alert show">
+        <i class="fa fa-check-square"></i>
+        <span class="msg">{{ success }}</span>
+        <div id="close_button" class="close-btn">
+            <i class="fa fa-times"></i>
+        </div>
+    </div>
+    {% endif %}
+    <header class="title-container">
+        <h1 class="title">Login</h1>
+    </header>
+    <main class="container fm">
+        <form id="form" class="form" method="POST" action="{% url 'login' %}" autocomplete="off">
+            {% csrf_token %}
+            <div class="adjust">
+                <div class="form-floating mb-3">
+                    {% render_field form.email id="email" name="email" class="form-control" placeholder="_" %}
+                    <label for="email">Email address</label>
+                </div>
+            </div>
+            <div class="adjust">
+                <div class="form-floating">
+                    {% render_field form.password id="password" class="form-control" type="password" placeholder="_" %}
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            {% if error %}
+            <script>
+                document.getElementById('password').classList.add('error')
+                document.getElementById('email').classList.add('error')
+            </script>
+            <div class="not-valid">
+                <p>&nbsp;&nbsp;&nbsp;{{ error }}</p>
+            </div>
+            {% endif %}
+            <div class="button-wrapper">
+                <button class="button" type="submit"><i class="fas fa-home">&nbsp;&nbsp;Login</i></button>
+            </div>
+
+            <p class="register">Don't have an account? <a href="{% url 'sign_in' %}">Sign in</a></p>
+        </form>
+    </main>
+    <!--Custom JS-->
+    <script src="{% static 'js/popup.js' %}"></script>
+    <script src="{% static 'js/prevent_resend.js' %}"></script>
+</body>
+
+{% endblock %}

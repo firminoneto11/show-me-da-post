@@ -1,0 +1,111 @@
+.title-container {
+    display: block;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.20);
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border-radius: 5px;
+    position: absolute;
+    top: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.title {
+    text-align: center;
+    color: #EEEEEE;
+}
+
+.fm {
+    padding: 200px;
+}
+
+.form {
+    border: #A9CEF4 1px solid;
+    border-radius: 3px;
+    padding: 50px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.45);
+}
+
+.form-floating {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.40);
+}
+
+.button-wrapper {
+    display: block;
+    width: 100%;
+}
+
+.button {
+    display: block;
+    margin-top: 2.5rem;
+    width: 30%;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #7EA0B7;
+    border: #A9CEF4 1px solid;
+    border-radius: 3px;
+    color: #EEEEEE;
+    transition: 0.3s;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.20);
+}
+
+.button:hover {
+    background-color: #EEEEEE;
+    color: #000000;
+}
+
+.register {
+    color: #A9CEF4;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.register a {
+    text-decoration: none;
+    color: rgb(101, 199, 255);
+    transition: 0.3s;
+}
+
+.register a:hover {
+    color: #000000;
+}
+
+.adjust {
+    margin-bottom: 0.5rem;
+    padding: 5px;
+}
+
+.not-valid {
+    /* background-image: linear-gradient(to left, #597081, #A9CEF4); */
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+}
+
+.not-valid p {
+    color: rgb(255, 180, 180);
+}
+
+@media screen and (max-width: 992px) {
+    .button {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .button {
+        width: 50%;
+    }
+}
+
+.error {
+    outline: none !important;
+    border: rgb(255, 125, 125) solid 2px !important;
+    transition: 0.3s;
+}
+
+.error:focus {
+    border: red solid 2px !important;
+}

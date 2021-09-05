@@ -1,0 +1,1 @@
+web: gunicorn A_show_me_da_post.wsgi --log-file -

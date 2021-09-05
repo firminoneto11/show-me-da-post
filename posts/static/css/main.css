@@ -1,0 +1,25 @@
+
+.container {
+    width: 80%;
+    margin: 1.5rem auto 0 auto;
+}
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 10px;
+    bottom: 10px;
+    cursor: pointer;
+    font-size: 30px;
+    color: darkblue;
+    padding: 5px;
+    background-color: #A9CEF4;
+    border-radius: 3px;
+    transition: 0.3s;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.50);
+}
+
+.back-to-top:hover {
+    background-color: #000000;
+    color: #EEEEEE;
+}
