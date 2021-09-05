@@ -1,7 +1,7 @@
 
 @font-face {
     font-family: "KonstanzRegular";
-    src: url("assets/fonts/Konstanz-Regular.ttf");
+    src: url("../assets/Konstanz-Regular.ttf");
 }
 
 * {
@@ -13,7 +13,6 @@
 }
 
 .body {
-    /* background-image: linear-gradient(to left, #36494E, #597081); */
     background-color: #546A7B;
     overflow-x: hidden;
 }

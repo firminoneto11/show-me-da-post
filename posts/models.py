@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 
 
-class Post(models.Model):
+class Posts(models.Model):
     author = models.ForeignKey(verbose_name='Author', to=get_user_model(), on_delete=models.CASCADE, null=False,
                                blank=False)
     title = models.CharField(verbose_name='Title', max_length=30, null=False, blank=False)
@@ -11,3 +11,8 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        db_table = "posts"
+        verbose_name = "post"
+        verbose_name_plural = "posts"

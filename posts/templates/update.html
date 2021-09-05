@@ -1,7 +1,6 @@
 <!--Template inheritance-->
 {% extends 'post_base.html' %}
 {% load static %}
-{% load widget_tweaks %}
 
 <!--Content-->
 {% block content %}
@@ -30,6 +29,14 @@
             <h1>Show me da post!</h1>
         </div>
     </header>
+    <!--Current page info-->
+    {% if posts %}
+    <div class="cur-url">
+        <div>
+            <h3>Choose one of your posts to update</h3>
+        </div>
+    </div>
+    {% endif %}
     <!--Navigation bar-->
     <nav class="nav">
         <input id="check" name="check" type="checkbox">
@@ -38,23 +45,21 @@
         <div class="sidebar">
             <div><i class="fas fa-user-alt">&nbsp;&nbsp;</i>Welcome {{ request.user }}</div>
             <ul>
-                <li><a href="#"><i class="fas fa-home">&nbsp;&nbsp;Home</i></a></li>
-                <li><a id="new_post"><i class="fas fa-pen">&nbsp;&nbsp;New Post</i></a></li>
-                <li><a href="{% url 'update' %}"><i class="fas fa-copy">&nbsp;&nbsp;Update Post</i></a></li>
-                <li><a href="{% url 'remove' %}"><i class="fas fa-trash-alt">&nbsp;&nbsp;Remove Post</i></a></li>
+                <li><a href="{% url 'home' %}"><i class="fas fa-home">&nbsp;&nbsp;Home</i></a></li>
+                <li><a href="{% url 'update' %}"><i class="fas fa-trash-alt">&nbsp;&nbsp;Update Post</i></a></li>
                 <li><a href="{% url 'logout' %}"><i class="fas fa-door-open">&nbsp;&nbsp;Logout</i></a></li>
             </ul>
         </div>
     </nav>
     <!--Main content - Posts-->
-    <main class="container">
+    <main id="main" class="container">
         {% if not posts %}
         <section class="no-posts">
-            <p><i class="far fa-comments">&nbsp;&nbsp;There are no posts yet :(</i></p>
+            <p><i class="far fa-comments">&nbsp;&nbsp;You didn't post anything yet :(</i></p>
         </section>
         {% else %}
         {% for post in posts %}
-        <section class="post">
+        <section class="post-update">
             <h1>{{ post.title }}</h1>
             <p>{{ post.post_content }}</p>
             <p class="post-info"><i class="far fa-comment-alt"></i>&nbsp;&nbsp;Posted on {{ post.posted_on }} by
@@ -65,34 +70,17 @@
         {% endfor %}
         {% endif %}
     </main>
-    <!--Create a new Post modal-->
-    <div id="modal" class="modal-bg">
-        <div class="modal">
-            <div class="inside-container">
-                <form id="form" class="form" action="{% url 'home' %}" method="POST">
-                    {% csrf_token %}
-                    <input type="hidden" id="author" name="author" value="{{ request.user.pk }}">
-                    <label class="label" for="title">New post's title</label>
-                    {% render_field form.title id="title" name="title" class="input" %}
-                    <p id="title_panel" class="panel">0/30</p>
-                    <label class="label" for="content">New post's content</label>
-                    {% render_field form.post_content id="post_content" name="post_content" class="textarea" %}
-                    <p id="post_panel" class="panel">0/255</p>
-                    <button id="post_button" class="post-button" type="submit"><i
-                            class="fas fa-pen">&nbsp;&nbsp;Post</i></button>
-                </form>
-                <button id="close_button" class="close-modal"><i class="fas fa-times">&nbsp;&nbsp;Cancel</i></button>
-            </div>
-        </div>
-    </div>
     <!--Back to the top button-->
     <a id="btp" class="back-to-top" href="#"><i class="far fa-arrow-alt-circle-up"></i></a>
+    <!--Sweet Alert JS-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!--Custom JS-->
-    <script src="{% static 'js/scroll.js' %}"></script>
     <script src="{% static 'js/modal.js' %}"></script>
-    <script src="{% static 'js/prevent_resend.js' %}"></script>
     <script src="{% static 'js/char_counter.js' %}"></script>
+    <script src="{% static 'js/scroll.js' %}"></script>
+    <script src="{% static 'js/prevent_resend.js' %}"></script>
     <script src="{% static 'js/popup.js' %}"></script>
+    <script src="{% static 'js/update_confirmation.js' %}"></script>
 </body>
 
 {% endblock %}

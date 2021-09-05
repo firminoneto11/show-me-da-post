@@ -1,5 +1,5 @@
 
-const confirm_deletion = (event) => {
+const confirm_update = (event) => {
     event.preventDefault()
     swal({
         title: "Are you sure you want to delete this post?",
@@ -20,5 +20,5 @@ const confirm_deletion = (event) => {
 
 document.addEventListener("DOMContentLoaded", () => {
     const forms = document.getElementById("main").childNodes
-    forms.forEach((form) => form.addEventListener("submit", confirm_deletion))
+    forms.forEach((form) => form.addEventListener("submit", confirm_update))
 })

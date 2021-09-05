@@ -1,10 +1,10 @@
 from django import forms
-from posts.models import Post
+from posts.models import Posts
 
 
 class PostCreationForm(forms.ModelForm):
     class Meta:
-        model = Post
+        model = Posts
         fields = 'author', 'title', 'post_content'
 
     title = forms.CharField(max_length=30, widget=forms.TextInput(attrs={
