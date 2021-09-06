@@ -85,11 +85,11 @@ WSGI_APPLICATION = 'A_show_me_da_post.wsgi.application'
 development_database = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': config('HOST'),
-        'PORT': config('PORT'),
-        'NAME': config('NAME'),
-        'USER': config('USER'),
-        'PASSWORD': config('PASSWORD')
+        'HOST': config('HOST', default="HOST"),
+        'PORT': config('PORT', default="PORT"),
+        'NAME': config('NAME', default="NAME"),
+        'USER': config('USER', default="USER"),
+        'PASSWORD': config('PASSWORD', default="PASSWORD")
     }
 }
 
